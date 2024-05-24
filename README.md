@@ -11,10 +11,13 @@ To install the gem, add it to your Gemfile by executing:
 ```bash
 $ bundle add ruby_avatar_smith
 ```
-Add this line to your application's Gemfile:
+or Add this line to your application's Gemfile:
 
 ```bash
-$ gem install ruby_avatar_smith
+$ gem 'rmagick'
+
+$ gem 'ruby_avatar_smith'
+
 ```
 And then execute:
 
@@ -35,6 +38,16 @@ random.write("output.png")
 Then, you can use the create_random_image method to generate avatars with text annotations:
 
 This will create a 200x200 image with the text "Hello, World!" annotated on it and save it as output.png.
+
+## Dependency
+You'll also need to have the RMagick gem installed
+Then add RMagick to your Gemfile:
+
+```
+gem 'rmagick'
+bundle install
+
+```
 
 ## Development
 
