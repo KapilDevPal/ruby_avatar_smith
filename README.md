@@ -1,24 +1,53 @@
 # RubyAvatarSmith
 
-TODO: Delete this and the text below, and describe your gem
+Welcome to RubyAvatarSmith! This gem allows you to create avatars with text annotations easily.
+RubyAvatarSmith is a Ruby gem that generates random images with specified dimensions and text annotations using the RMagick library.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ruby_avatar_smith`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+To install the gem, add it to your Gemfile by executing:
 
-Install the gem and add to the application's Gemfile by executing:
+```bash
+$ bundle add ruby_avatar_smith
+```
+or Add this line to your application's Gemfile:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+```bash
+$ gem 'rmagick'
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+$ gem 'ruby_avatar_smith'
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+```
+And then execute:
 
+```bash
+bundle install
+```
 ## Usage
 
-TODO: Write usage instructions here
+To generate a random image with specific dimensions and text annotation, you can use the create_random_image method provided by the RubyAvatarSmith module.
+```bash
+require 'ruby_avatar_smith'
+
+random = RubyAvatarSmith.create_random_image(200, 200, "John")
+
+random.write("output.png")
+
+```
+Then, you can use the create_random_image method to generate avatars with text annotations:
+
+This will create a 200x200 image with the text "Hello, World!" annotated on it and save it as output.png.
+
+## Dependency
+You'll also need to have the RMagick gem installed
+Then add RMagick to your Gemfile:
+
+```
+gem 'rmagick'
+bundle install
+
+```
 
 ## Development
 
@@ -28,7 +57,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ruby_avatar_smith. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/ruby_avatar_smith/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/KapilDevPal/ruby_avatar_smith. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/KapilDevPal/ruby_avatar_smith/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -36,4 +65,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the RubyAvatarSmith project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/ruby_avatar_smith/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the RubyAvatarSmith project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/KapilDevPal/ruby_avatar_smith/blob/master/CODE_OF_CONDUCT.md).
