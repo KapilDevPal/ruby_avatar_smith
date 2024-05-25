@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 require 'rmagick'
-require_relative 'ruby_avatar_smith/version'
+require 'active_support'
+require 'active_storage'
 
 module RubyAvatarSmith
   class Error < StandardError; end
@@ -11,8 +12,8 @@ module RubyAvatarSmith
   # @param width [Integer] The width of the image.
   # @param height [Integer] The height of the image.
   # @param text [String] The text to be annotated on the image.
-  # @return [Magick::Image] The generated image with the text annotation.
-  def self.create_random_image(width, height, text)
+  # @return [ActiveStorage::Blob] The generated image blob.
+  def self.create_user_image(width, height, text)
     rand_colour = "rgb(#{rand(0..256)}, #{rand(0..256)}, #{rand(0..256)})"
     randam_bg = Magick::Image.new(width, height) { |col| col.background_color = rand_colour }
 
@@ -23,6 +24,13 @@ module RubyAvatarSmith
       x.pointsize = 50
     end
 
-    randam_bg
+    blob = ActiveStorage::Blob.create_after_upload!(
+      io: StringIO.new(randam_bg.to_blob),
+      filename: 'random_image.jpg',
+      content_type: 'image/jpeg'
+    )
+
+    blob
   end
 end
+
