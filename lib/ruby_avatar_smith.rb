@@ -13,7 +13,9 @@ module RubyAvatarSmith
   # @param height [Integer] The height of the image.
   # @param text [String] The text to be annotated on the image.
   # @return [ActiveStorage::Blob] The generated image blob.
-  def self.create_user_image(width, height, text)
+  # record User to which image should attach
+  def self.create_user_image(record, width, height, text)
+    byebug
     rand_colour = "rgb(#{rand(0..256)}, #{rand(0..256)}, #{rand(0..256)})"
     randam_bg = Magick::Image.new(width, height) { |col| col.background_color = rand_colour }
 
@@ -23,14 +25,13 @@ module RubyAvatarSmith
       x.gravity = Magick::CenterGravity
       x.pointsize = 50
     end
-
-    blob = ActiveStorage::Blob.create_after_upload!(
-      io: StringIO.new(randam_bg.to_blob),
-      filename: 'random_image.jpg',
-      content_type: 'image/jpeg'
+    randam_bg.format = "PNG"
+    random_image_blob = randam_bg.to_blob
+    record.picture.attach(
+      io: StringIO.new(random_image_blob),
+      filename: 'random_image.png',
+      content_type: 'image/png'
     )
-
-    blob
   end
 end
 
