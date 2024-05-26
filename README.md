@@ -2,7 +2,9 @@
 
 Welcome to RubyAvatarSmith! This gem allows you to create avatars with text annotations easily.
 RubyAvatarSmith is a Ruby gem that generates random images with specified dimensions and text annotations using the RMagick library.
-![image](https://github.com/KapilDevPal/ruby_avatar_smith/assets/23410773/c0dc6658-0485-46bb-8dd0-2efa9ecbbb1c)
+## Example 
+![image](https://github.com/KapilDevPal/ruby_avatar_smith/assets/23410773/cf7bbe1e-349a-40a0-9207-e729aa6d2aba)
+
 
 
 ## Installation
