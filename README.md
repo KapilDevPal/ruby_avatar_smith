@@ -30,10 +30,13 @@ To generate a random image with specific dimensions and text annotation, you can
 ```bash
 require 'ruby_avatar_smith'
 
-random = RubyAvatarSmith.create_random_image(200, 200, "John")
 
-random.write("output.png")
+#random = RubyAvatarSmith.create_random_image(200, 200, "John")
 
+#random.write("output.png")
+
+image_blob = RubyAvatarSmith.create_user_image(200, 200, 'Your Text')
+    user.profile_picture.attach(image_blob)
 ```
 Then, you can use the create_random_image method to generate avatars with text annotations:
 
